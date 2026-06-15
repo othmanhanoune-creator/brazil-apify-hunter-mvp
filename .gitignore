@@ -1,0 +1,38 @@
+# Secrets
+.streamlit/secrets.toml
+.env
+*.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+
+# Local runtime outputs
+logs/
+*.log
+*.db
+data/warehouse/
+
+# Raw/private pipeline runtime files; keep placeholders only
+# Comment these out if you want to commit runtime outputs in a private repo.
+data/lake/bronze/apify_google_maps/*.csv
+data/lake/silver/leads_cleaned/*.csv
+data/lake/gold/qualified_b2b_leads/*.csv
+data/lake/gold/enriched_contacts/*.csv
+
+# Keep manual MVP data in this ZIP; consider ignoring before public GitHub if real leads.
+# data/manual/
+
+# Local secret files
+.env
+.streamlit/secrets.toml
+
+# Local secrets
+.env
+.streamlit/secrets.toml
+venv/
+__pycache__/
+.pytest_cache/

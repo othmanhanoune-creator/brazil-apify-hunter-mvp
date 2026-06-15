@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python -m py_compile streamlit_app.py src/supabase_client/lead_repository.py src/supabase_client/upload_leads_to_supabase.py src/extractors/apify_google_maps_csv.py src/transformers/split_brazil_gold.py src/enrichment/email_enrich_strong_gold.py src/enrichment/build_hunter_input.py src/enrichment/clean_hunter_input.py src/enrichment/hunter_enrich_missing_emails.py src/enrichment/finalize_hunter_enrichment.py run_apify_hunter_pipeline.py
+      - run: pytest -q
